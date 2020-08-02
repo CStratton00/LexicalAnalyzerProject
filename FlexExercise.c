@@ -9,7 +9,7 @@ int errors = 0;
 iint|intt {words++; errors++; printf("%6s : ERROR AT LINE: %i, CHAR: %i ... Did you mean int?\n", yytext, lines, chars);} // checks for the word int is mispelled
 ;; {chars++; errors++; printf("%6s : ERROR AT LINE: %i, CHAR: %i ... Did you mean ;?\n", yytext, lines, chars);} // checks for double semicolons
 
-// assings tokens in the code and adds numbers to the prior variables
+// assigns tokens in the code and adds numbers to the prior variables
 test|main {words++; chars += strlen(yytext); printf("%6s : FUNCTION\n", yytext);} // produces a function token and adds to words and chars
 int|bool|char|void|float|double {words++; chars += strlen(yytext); printf("%6s : TYPE\n", yytext);}
 do|if|for|case|else|break|while|continue|default|return|read|write {words++; chars += strlen(yytext); printf("%6s : KEYWORD\n", yytext);}
